@@ -29,6 +29,10 @@ export const loadAllFile = async (dir: string) => {
       continue
     }
 
+    // Exceptions
+    // Testes
+    if (file.includes('.spec.ts') || file.includes('.spec.js')) continue
+
     // Import the file
     const global: ExpressPedromdsnLib = await import(`@/api/${absolutePath}`)
 

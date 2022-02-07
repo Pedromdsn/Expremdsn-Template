@@ -19,5 +19,5 @@
       "@/lib": ["src/libs/lib"]
     }
   },
-  "include": ["src/**/*", "backup"]
+  "include": ["src/**/*", "tests/**/*"]
 }

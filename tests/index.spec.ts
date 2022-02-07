@@ -1,10 +1,8 @@
-import supertest from 'supertest';
-import { app} from "@/src/app"
+import supertest from 'supertest'
+import { app } from '@/app'
 
-describe("Test the root path", () => {
-  test("It should response the GET method", () => {
-    return request(app)
-      .get("/")
-      .expect(200);
-  });
-});
+describe('Test the root path', () => {
+  test('It should response the GET method', () => {
+    return supertest(app).get('/').expect(200)
+  })
+})
