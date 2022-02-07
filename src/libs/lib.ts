@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 import { router } from '../router'
-import { ExpressPedromdsnLib, MiddleWare } from 'src/@types'
+import { ExpressPedromdsnLib, MiddleWare } from 'src'
 
 export const getWebPath = (file: string) => {
   return file.replace('index.ts', '').replace('_middleware.ts', '').replace('.ts', '')
@@ -28,7 +28,7 @@ export const loadAllFile = async (dir: string) => {
     }
 
     // Import the file
-    const global: ExpressPedromdsnLib = await import(`../../../src/api/${absolutePath}`)
+    const global: ExpressPedromdsnLib = await import(`../../../../src/api/${absolutePath}`)
 
     // Middlewares
     const middlewareToThisWebPath =
