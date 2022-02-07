@@ -1,10 +1,13 @@
 import { Router } from 'express'
-import fs from 'fs'
+import { loadAllFile } from '@/lib/lib'
 
-export const app = Router()
+const app = Router()
 
-const dir = fs.readdirSync('./src/api')
+loadAllFile('./src/api')
 
-for (const file of dir) import(`@/api/${file}`)
+// app.get('/teste/:id', (req, res) => {
+//   const { id } = req.params
+//   res.send(`Hello World! ${id}`)
+// })
 
 export { app as router }
