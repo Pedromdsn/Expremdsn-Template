@@ -1,17 +1,18 @@
 import fs from 'fs'
+import { ExpressPedromdsnLib, MiddleWare } from '.'
 
-import { router } from '../router'
-import { ExpressPedromdsnLib, MiddleWare } from 'src'
+import { router } from '@/router'
 
-export const getWebPath = (file: string) => {
+const getWebPath = (file: string) => {
   return file.replace('index.ts', '').replace('_middleware.ts', '').replace('.ts', '')
 }
 
-export interface middlewareType {
+interface middlewareType {
   middleware: MiddleWare
   path: string
 }
 
+// Save middlewares
 const middlewares = [] as middlewareType[]
 
 export const loadAllFile = async (dir: string) => {
@@ -22,13 +23,14 @@ export const loadAllFile = async (dir: string) => {
     const absolutePath = pathToFile.split('api')[1]
     const webPath = getWebPath(absolutePath)
 
+    // Verify if file is a directory
     if (fs.lstatSync(`${pathToFile}`).isDirectory()) {
       loadAllFile(`${pathToFile}`)
       continue
     }
 
     // Import the file
-    const global: ExpressPedromdsnLib = await import(`../../../../src/api/${absolutePath}`)
+    const global: ExpressPedromdsnLib = await import(`@/api/${absolutePath}`)
 
     // Middlewares
     const middlewareToThisWebPath =

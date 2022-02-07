@@ -9,7 +9,15 @@
     "outDir": "dist",
     "baseUrl": ".",
     "declaration": true,
-    "paths": {}
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"],
+      "@/*": ["src/*"],
+      "@/router": ["src/router"],
+      "@/api/*": ["src/api/*"],
+      "@/libs/*": ["src/libs/*"],
+      "@/prisma": ["src/libs/prisma"],
+      "@/lib": ["src/libs/lib"]
+    }
   },
   "include": ["src/**/*", "backup"]
 }

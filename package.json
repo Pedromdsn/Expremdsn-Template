@@ -1,24 +1,22 @@
 {
-  "name": "expremdsn",
-  "version": "1.0.9",
-  "description": "Express v2 framework",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "name": "express-pedromdsn-template",
+  "version": "1.1.0",
+  "description": "Express v2 template",
   "license": "MIT",
   "author": "Pedromdsn <me@pedromdsn.com>",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "node dist",
-    "build": "tsc",
+    "start": "ts-node -r tsconfig-paths/register src",
     "dev": "nodemon -e ts,js --exec ts-node -r tsconfig-paths/register ./src",
     "lint": "eslint src/**/*.ts"
   },
   "dependencies": {
-    "express": "^4.17.2",
+    "@prisma/client": "^3.9.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
