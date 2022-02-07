@@ -1,3 +1,4 @@
+#!/usr/bin/env ts-node
 import dotenv from 'dotenv'
 import { app } from './app'
 

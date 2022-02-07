@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { loadAllFile } from '@/lib/lib'
+import { loadAllFile } from './libs/lib'
 
 const app = Router()
 

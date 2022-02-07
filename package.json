@@ -1,15 +1,18 @@
 {
-  "name": "express",
+  "name": "expremdsn",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Express v2 framework",
+  "main": "src/index.ts",
+  "bin": "src/index.ts",
+  "types": "src/index.d.ts",
   "license": "MIT",
+  "author": "Pedromdsn <me@pedromdsn.com>",
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src",
     "dev": "nodemon -e ts,js --exec ts-node -r tsconfig-paths/register ./src",
     "lint": "eslint src/**/*.ts"
   },
   "dependencies": {
-    "@prisma/client": "^3.9.1",
     "express": "^4.17.2"
   },
   "devDependencies": {
@@ -25,9 +28,21 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "tsconfig-paths": "^3.12.0",
     "typescript": "^4.5.5"
-  }
+  },
+  "keywords": [
+    "express",
+    "expressjs",
+    "expressjs2",
+    "pedromdsn",
+    "nodejs",
+    "node"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromdsn"
+  },
+  "homepage": "https://github.com/pedromdsn"
 }
