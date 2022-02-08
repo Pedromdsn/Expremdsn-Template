@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import fs from 'fs'
 import { ExpressPedromdsnLib, MiddleWare } from '.'
 

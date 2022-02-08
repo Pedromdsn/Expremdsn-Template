@@ -4,9 +4,6 @@
   "description": "Express v2 template",
   "license": "MIT",
   "author": "Pedromdsn <me@pedromdsn.com>",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src",
     "dev": "nodemon -e ts,js --exec ts-node -r tsconfig-paths/register ./src",
