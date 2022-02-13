@@ -75,6 +75,9 @@ const loadAllFile = async (dir: string) => {
     if (global.postMethod) router.post(webPath, global.postMethod)
     if (global.putMethod) router.put(webPath, global.putMethod)
     if (global.deleteMethod) router.delete(webPath, global.deleteMethod)
+    if (global.headMethod) router.head(webPath, global.headMethod)
+    if (global.patchMethod) router.patch(webPath, global.patchMethod)
+    if (global.optionsMethod) router.options(webPath, global.optionsMethod)
   }
 }
 
