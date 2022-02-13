@@ -1,8 +1,12 @@
 /* istanbul ignore file */
 import fs from 'fs'
-import { ExpressPedromdsnLib, MiddleWare } from '.'
+import { ExpressPedromdsnLib, MiddleWare } from '@/lib'
 
-import { router } from '@/router'
+import { Router } from 'express'
+
+const router = Router()
+
+const debug = true
 
 const getWebPath = (file: string) => {
   return file.replace('index.ts', '').replace('_middleware.ts', '').replace('.ts', '')
@@ -13,10 +17,15 @@ interface middlewareType {
   path: string
 }
 
-// Save middlewares
+// Cache middlewares
 const middlewares = [] as middlewareType[]
 
-export const loadAllFile = async (dir: string) => {
+const isMiddleware = (file: string) => file === '_middleware.ts'
+
+const getMiddlewares = (path: string) =>
+  middlewares.length > 0 ? middlewares.filter((e) => path === getWebPath(e.path))[0] : null
+
+const loadAllFile = async (dir: string) => {
   const files = fs.readdirSync(dir)
 
   for (const file of files) {
@@ -31,28 +40,35 @@ export const loadAllFile = async (dir: string) => {
     }
 
     // Exceptions
-    // Testes
-    if (file.includes('.spec.ts') || file.includes('.spec.js')) continue
+    // Tests
+    if (file.includes('.spec.') || file.includes('.spec.')) continue
+    // Services
+    if (!isMiddleware(file) && file.startsWith('_')) continue
 
     // Import the file
     const global: ExpressPedromdsnLib = await import(`@/api/${absolutePath}`)
 
     // Middlewares
-    const middlewareToThisWebPath =
-      middlewares.length > 0 ? middlewares.filter((e) => webPath === getWebPath(e.path))[0] : null
+    const middlewareToThisWebPath = getMiddlewares(webPath)
 
-    if (file !== '_middleware.ts' && !!middlewareToThisWebPath) {
-      router.use(webPath, middlewareToThisWebPath.middleware)
-    }
-
-    if (file === '_middleware.ts' && global.middleware) {
+    // Add middleware to cache
+    if (isMiddleware(file) && global.middleware) {
       const tempMid = {
         middleware: global.middleware,
         path: webPath,
       }
       middlewares.push(tempMid)
+      if (debug) console.log(`Middleware - ${file} - ${webPath}`)
       continue
     }
+
+    // Set middleware to this web path
+    if (!isMiddleware(file) && !!middlewareToThisWebPath) {
+      router.use(webPath, middlewareToThisWebPath.middleware)
+      if (debug) console.log(`Add Middleware to route - ${file} - ${webPath}`)
+    }
+
+    if (debug) console.log(`Route - ${file} - ${webPath}`)
 
     // Methods
     if (global.getMethod) router.get(webPath, global.getMethod)
@@ -61,3 +77,7 @@ export const loadAllFile = async (dir: string) => {
     if (global.deleteMethod) router.delete(webPath, global.deleteMethod)
   }
 }
+
+loadAllFile('./src/api')
+
+export { router }
