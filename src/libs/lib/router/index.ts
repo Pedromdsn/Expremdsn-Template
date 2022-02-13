@@ -6,7 +6,7 @@ import { Router } from 'express'
 
 const router = Router()
 
-const debug = true
+const debug = false
 
 const getWebPath = (file: string) => {
   return file.replace('index.ts', '').replace('_middleware.ts', '').replace('.ts', '')

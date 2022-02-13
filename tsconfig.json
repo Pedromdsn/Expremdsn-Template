@@ -16,7 +16,7 @@
       "@/libs/*": ["src/libs/*"],
       "@/prisma": ["src/libs/prisma"],
       "@/lib": ["src/libs/lib"],
-      "@/router": ["src/libs/lib/lib.ts"]
+      "@/router": ["src/libs/lib/index.ts"]
     }
   },
   "include": ["src/**/*", "tests/**/*"]
