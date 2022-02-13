@@ -15,7 +15,8 @@
       "@/api/*": ["src/api/*"],
       "@/libs/*": ["src/libs/*"],
       "@/prisma": ["src/libs/prisma"],
-      "@/lib": ["src/libs/lib"]
+      "@/lib": ["src/libs/lib"],
+      "@/router": ["src/libs/lib/lib.ts"]
     }
   },
   "include": ["src/**/*", "tests/**/*"]

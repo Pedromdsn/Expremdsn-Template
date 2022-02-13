@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 
-import { router } from './libs/lib/lib'
+import { router } from '@/router'
 
 const app = express()
 
