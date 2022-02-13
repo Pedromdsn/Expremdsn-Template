@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import fs from 'fs'
-import { ExpressPedromdsnLib, MiddleWare } from '@/lib'
+import { ExpressPedromdsnLib, Middleware } from '@/lib'
 
 import { Router } from 'express'
 
@@ -13,7 +13,7 @@ const getWebPath = (file: string) => {
 }
 
 interface middlewareType {
-  middleware: MiddleWare
+  middleware: Middleware
   path: string
 }
 
@@ -78,6 +78,7 @@ const loadAllFile = async (dir: string) => {
     if (global.headMethod) router.head(webPath, global.headMethod)
     if (global.patchMethod) router.patch(webPath, global.patchMethod)
     if (global.optionsMethod) router.options(webPath, global.optionsMethod)
+    if (global.allMethods) router.all(webPath, global.allMethods)
   }
 }
 

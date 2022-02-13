@@ -1,6 +1,6 @@
-import { MiddleWare } from '@/libs/lib'
+import { Middleware } from '@/libs/lib'
 
-export const middleware: MiddleWare = (req, res, next) => {
+export const middleware: Middleware = (req, res, next) => {
   console.log('Hello World!')
   next()
 }
