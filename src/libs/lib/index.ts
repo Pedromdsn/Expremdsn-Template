@@ -1,4 +1,2 @@
-import { router } from './router'
-
-export { router }
-export * from './@types/types'
+export { router } from './router'
+export * from './@types'
