@@ -1889,10 +1889,10 @@ expect@^27.5.1:
     jest-matcher-utils "^27.5.1"
     jest-message-util "^27.5.1"
 
-expremdsn@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/expremdsn/-/expremdsn-1.2.0.tgz#76077d8b37b360de627fd7def033160ef0ec9c7c"
-  integrity sha512-/fvSKpepjMOm+D+AWNYKtG2Iji/ftShCygggZ3pX87e8hy4nYtOHFvsGUzxTW8VUYUPCeKZTxC4QD0PAfw8UtA==
+expremdsn@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/expremdsn/-/expremdsn-1.2.7.tgz#ef9513626957752148e27d1e3d14ba6b1afbc65e"
+  integrity sha512-IuWuyX+EVJY550iJ4iV1QrBaGNfOJqy4gXeEHTTUyJ1hbOj71tq8DN5fJ0U/OGg+9Bu4VndZAXpgNkiy2PgLPw==
   dependencies:
     cors "^2.8.5"
     dotenv "^16.0.0"
