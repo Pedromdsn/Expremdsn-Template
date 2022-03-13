@@ -15,7 +15,7 @@
     "@prisma/client": "^3.9.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "expremdsn": "^1.2.7"
+    "expremdsn": "^1.3.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
